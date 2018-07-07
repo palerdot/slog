@@ -46,6 +46,14 @@ end
 ## About
 `Slog` is an experimental module that helps printing multiple values together instead of using something like IO.inspect multiple times. For now it is recommended to use only in `:dev, :test` environments. Feedbacks and contributions appreciated.
 
+## CHANGELOG
+
+[View Changelog](Changelog.md)
+
+## LICENSE
+
+MIT
+
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/slog](https://hexdocs.pm/slog).
