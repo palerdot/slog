@@ -39,16 +39,6 @@ defmodule Slog do
       "%{manager: %User{age: 69, name: Leonardo}}"
   """
   def log(data, opts) when is_list(data) do
-    # v0
-    # logged = Enum.map data, fn d ->
-    #   try do
-    #     any_to_string(d)
-    #   catch
-    #     d ->
-    #       IO.inspect d
-    #       raise SlogInvalidType, message: "Cannot log given value; probably a function! please recheck the values passed."
-    #   end    
-    # end
     
     # v1 -> syncronous processing
     logged = Enum.map data, &process_elements/1
@@ -80,20 +70,21 @@ defmodule Slog do
 
   # private functions
 
+  # async processing stuffs
   # helper function to make async query
-  defp async_query(query) do
-    caller = self()
-    spawn(fn ->
-      send(caller, {:slogged, process_elements(query)})
-    end)
-  end 
+  # defp async_query(query) do
+  #   caller = self()
+  #   spawn(fn ->
+  #     send(caller, {:slogged, process_elements(query)})
+  #   end)
+  # end 
 
-  # helper function to get result
-  defp get_result(_) do
-    receive do
-      {:slogged, result} -> result
-    end
-  end
+  # # helper function to get result
+  # defp get_result(_) do
+  #   receive do
+  #     {:slogged, result} -> result
+  #   end
+  # end
 
   # helper function to process elements
   defp process_elements(d) do

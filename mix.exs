@@ -15,6 +15,8 @@ defmodule Slog.MixProject do
       name: "Slog",
       source_url: "https://github.com/palerdot/slog",
       homepage_url: "https://github.com/palerdot/slog",
+      docs: [main: "readme", # The main page in the docs
+          extras: ["README.md"]]
     ]
   end
 
