@@ -31,7 +31,7 @@ Takes a keyword list as second parameter for options. Right now, only configurab
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+[Slog](https://hexdocs.pm/slog/) can be installed
 by adding `slog` to your list of dependencies in `mix.exs`:
 
 

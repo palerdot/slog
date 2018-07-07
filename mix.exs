@@ -16,7 +16,14 @@ defmodule Slog.MixProject do
       source_url: "https://github.com/palerdot/slog",
       homepage_url: "https://github.com/palerdot/slog",
       docs: [main: "readme", # The main page in the docs
-          extras: ["README.md"]]
+          extras: ["README.md"]],
+
+      # mix package stuffs
+      package: [
+        maintainers: ["Arun Kumar <palerdot@gmail.com>"],
+        licenses: ["MIT"],
+        links: %{"GitHub" => "https://github.com/palerdot/slog"}
+      ]
     ]
   end
 
