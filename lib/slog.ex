@@ -2,7 +2,7 @@ defmodule Slog do
   @moduledoc """
   Documentation for Slog.
 
-  Print anything (single/multiple values) as string for debugging. Slog takes a list of values or a single value that is printed as string for debugging. 
+  Print multiple values as string (except functions and binaries) for debugging. Slog takes a list of values or a single value that is printed as string for debugging. 
   Any value (string, atom, map, list, struct, keyword list ...) except functions can be printed as string with slog.
   """
   @default_options [delimiter: " "]

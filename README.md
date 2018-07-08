@@ -1,6 +1,6 @@
 # Slog
 
-Print anything (single/multiple values) as string for debugging. Slog takes a list of values or a single value that is printed as string for debugging. Any value (string, atom, map, list, struct, keyword list ...) except functions can be printed as string with slog.
+Print multiple values as string (except functions and binaries) for debugging. Slog takes a list of values or a single value that is printed as string for debugging. Any value (string, atom, map, list, struct, keyword list ...) except functions can be printed as string with slog.
 
 ## Usage:
 
