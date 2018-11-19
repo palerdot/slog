@@ -5,7 +5,7 @@ defmodule Slog do
   Print multiple values as string (except functions and binaries) for debugging. Slog takes a list of values or a single value that is printed as string for debugging. 
   Any value (string, atom, map, list, struct, keyword list ...) except functions can be printed as string with slog.
   """
-  @default_options [delimiter: " "]
+  @default_options [delimiter: " ", stdout: true]
 
   @doc """
   logs given list of data, takes optional keyword list
@@ -22,6 +22,9 @@ defmodule Slog do
 
       iex> Slog.log ["value is ", {:x, :x, :x}, [key: "value"], {:ok, "Hello Universe!"}]
       "value is  {:x, :x, :x} [{:key, value}] {:ok, Hello Universe!}"
+
+      iex> Slog.log ["hello", "universe"], stdout: true, delimiter: "---"
+      "hello---universe"
 
       iex> Slog.log ["value is ", {:x, :x, :x}, [key: "value"], {:ok, "Hello Universe!"}, %User{age: 29, name: "Arun"}]
       "value is  {:x, :x, :x} [{:key, value}] {:ok, Hello Universe!} %User{age: 29, name: Arun}"
@@ -52,9 +55,19 @@ defmodule Slog do
     # construct options for logging
     options = Keyword.merge(@default_options, opts)
     delimiter = Keyword.fetch!(options, :delimiter)
+    is_stdout = Keyword.fetch!(options, :stdout)
 
     # log the final result
-    Enum.join(logged, delimiter)
+    final_result = Enum.join(logged, delimiter)
+
+    # if stdout is true log to the 'stdout'
+    # SIDE EFFECT!!!
+    if (is_stdout) do
+      IO.puts final_result
+    end
+
+    # return the final result
+    final_result
   end
   def log(data) when is_list(data) do
     log(data, @default_options)

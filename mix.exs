@@ -4,7 +4,7 @@ defmodule Slog.MixProject do
   def project do
     [
       app: :slog,
-      version: "0.1.0",
+      version: "0.1.1",
       description: "Print multiple values as string (except functions and binaries) for debugging.",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
